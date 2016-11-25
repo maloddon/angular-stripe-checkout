@@ -63,7 +63,9 @@ function StripeCheckoutDirective($parse, StripeCheckout) {
           var callback = $parse(attrs.stripeCheckout)(scope);
           if (typeof callback === 'function')
             callback.apply(null,result);
-        });
+        }, function() {
+          var closed = $parse(attrs.closed)(scope);
+       });
     });
   }
 }
